@@ -20,6 +20,7 @@
  This example code is in the public domain
 
  http://www.arduino.cc/en/Tutorial/MultipleBlinks
+ https://www.arduino.cc/reference/en/libraries/scheduler/
 */
 
 // Include Scheduler since we want to manage multiple tasks.
