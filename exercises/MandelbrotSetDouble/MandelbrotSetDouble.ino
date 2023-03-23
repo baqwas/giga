@@ -32,19 +32,19 @@ void setup() {                          // basic initialization
 
 #define UCHAR_MAX 255
 
-const float xCentre = -0.75;
-const float yCentre = +0.0;
+const double xCentre = -0.75;
+const double yCentre = +0.0;
 const int    nx      = 40000;
 const int    ny      = 40000;
-const float dxy     = 0.005;
+const double dxy     = 0.005;
 
 /**
  *  estimate a set of points such that z(n+1) = z(n)^2 +c remains bounded
  */
 void MandelbrotFloat()
 {
-  float cx, cy;
-  float zx, zy, new_zx;
+  double cx, cy;
+  double zx, zy, new_zx;
   unsigned char n;
   int i, j;
   // unsigned long MAX_q = 65536;
@@ -97,12 +97,12 @@ void MandelbrotFloat()
  * this section runs indefinitely
  */
 void loop() {                           // repeat the calculations
-   int i_max = 2;
+  // int i_max = 2;
   // int i_max = 4;
   // int i_max = 8;
   // int i_max = 16;
   // int i_max = 32;
-  // int i_max = 64;
+   int i_max = 64;
   unsigned long started = millis();
 
   for (int i = 0; i < i_max; i++)

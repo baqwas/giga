@@ -7,12 +7,13 @@
  * Serial - serial communication library
  */
 
+#include <RPC.h>
+
 /**
  * this section runs once at startup
  */
 void setup() {                          // basic initialization
-  Serial.begin(115200);                 // faster speeds may be supported
-  Serial.println("GIGA R1 WiFi");       // for documentation purposes
+  RPC.begin();                          // faster speeds may be supported
 }
 
 /**
@@ -111,6 +112,6 @@ void loop() {                           // repeat the calculations
   }
  
   unsigned long elapsed = millis() - started;
-  Serial.print("Elapsed time = ");
-  Serial.println(elapsed);
+  RPC.print("Elapsed time = ");
+  RPC.println(elapsed);
 }

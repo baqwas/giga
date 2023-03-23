@@ -7,12 +7,13 @@
  * Serial - serial communication library
  */
 
+#include <RPC.h>
+
 /**
  * this section runs once at startup
  */
 void setup() {                          // basic initialization
-  Serial.begin(115200);                 // faster speeds may be supported
-  Serial.println("GIGA R1 WiFi");       // for documentation purposes
+  RPC.begin();                          // faster speeds may be supported
 }
 
 /**
@@ -32,38 +33,23 @@ void setup() {                          // basic initialization
 
 #define UCHAR_MAX 255
 
-const float xCentre = -0.75;
-const float yCentre = +0.0;
+const double xCentre = -0.75;
+const double yCentre = +0.0;
 const int    nx      = 40000;
 const int    ny      = 40000;
-const float dxy     = 0.005;
+const double dxy     = 0.005;
 
 /**
  *  estimate a set of points such that z(n+1) = z(n)^2 +c remains bounded
  */
 void MandelbrotFloat()
 {
-  float cx, cy;
-  float zx, zy, new_zx;
+  double cx, cy;
+  double zx, zy, new_zx;
   unsigned char n;
   int i, j;
-  // unsigned long MAX_q = 65536;
-  // unsigned long MAX_q = 131072;
-  // unsigned long MAX_q = 262144;
-  // unsigned long MAX_q = 524288;
-  // unsigned long MAX_q = 1048576;
-  // unsigned long MAX_q = 2097152;
-  // unsigned long MAX_q = 4194304;
-  // unsigned long MAX_q = 8388608;
-  // unsigned long MAX_q = 16777216;
-  // unsigned long MAX_q = 33554432;
-  // unsigned long MAX_q = 67108864;
-  // unsigned long MAX_q = 134217728;
-  // unsigned long MAX_q = 268435456;
-  // unsigned long MAX_q = 536870912;
-  // unsigned long MAX_q = 1073741824;
-   unsigned long MAX_q = 2147483648;
-  // unsigned long MAX_q = 4294967295;
+  unsigned long MAX_q = 2147483648;
+
 
   // The Mandelbrot calculation is to iterate the equation
   // z = z*z + c, where z and c are complex numbers, z is initially
@@ -111,6 +97,6 @@ void loop() {                           // repeat the calculations
   }
  
   unsigned long elapsed = millis() - started;
-  Serial.print("Elapsed time = ");
-  Serial.println(elapsed);
+  RPC.print("Elapsed time = ");
+  RPC.println(elapsed);
 }

@@ -1,9 +1,10 @@
 /**
- * @file HelloPrimeInt.ino
+ * @file HelloPrimeIntM7.ino
  * @brief To monitor serial output from Arduino GIGA R1 WiFi board co-processor (viz. M4)
  * @author armw
  *
- * millis - returns elapsed time, in milliseconds as unsigned long, since the start of the current program
+ * RPC - Remote Procedure Call library
+ * Serial - serial communication library
  */
 
 #include <RPC.h>
